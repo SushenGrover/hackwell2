@@ -53,6 +53,26 @@ def calculate_metrics(y_true, y_pred_proba):
         'Brier_Score': brier_score_loss(y_true, y_pred_proba)
     }
 
+def get_recommended_actions(prob):
+    """Return recommendations based on risk probability."""
+    if prob >= 0.8:
+        return [
+            "Alert ICU for possible transfer or escalation.",
+            "Start continuous vital sign monitoring.",
+            "Consult senior physician immediately."
+        ]
+    elif prob >= 0.5:
+        return [
+            "Increase frequency of monitored vitals.",
+            "Assess oxygen supply and make preparations.",
+            "Start treatment escalation if clinically indicated."
+        ]
+    else:
+        return [
+            "Maintain standard monitoring.",
+            "Reassess patient in scheduled rounds.",
+        ]
+
 @app.route('/predict', methods=['POST'])
 def predict():
     if model is None:
@@ -77,9 +97,23 @@ def predict():
     try:
         features = aggregate_features(df)
         features_array = np.array(features).reshape(1, -1)
-        prob = model.predict_proba(features_array)[0][1]
-        logger.info(f"Prediction complete: {prob:.4f}")
-        return jsonify({'probability_of_deterioration': float(prob)})
+        proba = model.predict_proba(features_array)
+        logger.info(f"Predict_proba output: {proba}")
+
+        if proba.shape[1] == 1:
+            # Single class scenario: take probability of that class
+            prob = float(proba[0][0])
+        else:
+            # Binary/multi-class: use probability of positive class at index 1
+            prob = float(proba[0][1])
+
+        recommendations = get_recommended_actions(prob)
+        logger.info(f"Prediction complete: {prob:.4f} | Recommended Actions: {recommendations}")
+
+        return jsonify({
+            'probability_of_deterioration': prob,
+            'recommended_actions': recommendations
+        })
 
     except Exception as e:
         logger.error(f"Prediction error: {e}")
@@ -109,12 +143,18 @@ def evaluate():
     try:
         features = aggregate_features(df)
         features_array = np.array(features).reshape(1, -1)
-        prob = model.predict_proba(features_array)[0][1]
+        prob = model.predict_proba(features_array)
+        logger.info(f"Predict_proba output for evaluation: {prob}")
+
+        if prob.shape[1] == 1:
+            prob_value = float(prob[0][0])
+        else:
+            prob_value = float(prob[0][1])
+
         true_label = int(df['true_label'].iloc[0])
-        metrics = calculate_metrics(np.array([true_label]), np.array([prob]))
+        metrics = calculate_metrics(np.array([true_label]), np.array([prob_value]))
         logger.info(f"Evaluation metrics: {metrics}")
         return jsonify(metrics)
-
     except Exception as e:
         logger.error(f"Evaluation error: {e}")
         return jsonify({'error': f'Error during evaluation: {str(e)}'}), 500
