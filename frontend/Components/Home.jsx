@@ -88,6 +88,7 @@ const Home = () => {
         admissionDate: form.admissionDate.value,
         probability: parseFloat(probability),
         daily_records: dailyRecords,
+        key_drivers: data.key_drivers, // Store the key drivers here
       };
 
       const updatedPatients = [...patients, newPatient].sort(
@@ -198,7 +199,7 @@ const Home = () => {
             onClose={() => setSelectedPatient(null)}
             getBarColor={getBarColor}
             getTextColor={getTextColor}
-            getStrokeColor={getStrokeColor} // Pass the new function here
+            getStrokeColor={getStrokeColor}
           />
         )}
       </main>
