@@ -1,89 +1,106 @@
+import { FaTimes } from "react-icons/fa";
+
 const AddPatientModal = ({ onClose, onAdd }) => (
-  <div className="fixed inset-0 bg-blue-950 bg-opacity-60 flex justify-center items-center z-50">
-    <div className="bg-white rounded-2xl p-10 w-full max-w-lg shadow-2xl relative">
+  <div className="fixed inset-0 bg-slate-900 bg-opacity-70 flex justify-center items-center z-50 animate-fade-in">
+    <div className="bg-white rounded-3xl p-10 w-full max-w-lg shadow-2xl relative transform scale-95 transition-transform duration-300 ease-out">
       <button
         onClick={onClose}
-        className="absolute top-5 right-5 text-2xl text-blue-900 hover:text-red-500"
+        className="absolute top-5 right-5 text-2xl text-slate-400 hover:text-slate-600 transition-colors"
       >
-        &times;
+        <FaTimes />
       </button>
-      <h2 className="text-4xl font-bold text-blue-900 mb-8 text-center">
+      <h2 className="text-3xl font-extrabold text-slate-800 mb-8 text-center">
         Add Patient Record
       </h2>
-      <form onSubmit={onAdd} className="space-y-7">
+      <form onSubmit={onAdd} className="space-y-6">
         <div>
-          <label className="block text-gray-700 mb-2" htmlFor="name">
+          <label
+            className="block text-slate-700 font-medium mb-1"
+            htmlFor="name"
+          >
             Patient Name
           </label>
           <input
             type="text"
             id="name"
-            name="name"   // ✅ must match handler
-            placeholder="Patient Name"
+            name="name"
+            placeholder="e.g., Jane Doe"
             required
-            className="border p-2 w-full"
+            className="border border-slate-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
           />
         </div>
 
         <div>
-          <label className="block text-gray-700 mb-2" htmlFor="disease">
+          <label
+            className="block text-slate-700 font-medium mb-1"
+            htmlFor="disease"
+          >
             Disease
           </label>
           <input
             type="text"
             id="disease"
-            name="disease"  // ✅ must match handler
-            placeholder="Disease"
+            name="disease"
+            placeholder="e.g., Pneumonia"
             required
-            className="border p-2 w-full"
+            className="border border-slate-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
           />
         </div>
 
         <div>
-          <label className="block text-gray-700 mb-2" htmlFor="age">
+          <label
+            className="block text-slate-700 font-medium mb-1"
+            htmlFor="age"
+          >
             Age
           </label>
           <input
             type="number"
             id="age"
-            name="age"   // ✅ must match handler
-            placeholder="Age"
+            name="age"
+            placeholder="e.g., 45"
             required
-            className="border p-2 w-full"
+            className="border border-slate-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
           />
         </div>
 
         <div>
-          <label className="block text-gray-700 mb-2" htmlFor="admissionDate">
+          <label
+            className="block text-slate-700 font-medium mb-1"
+            htmlFor="admissionDate"
+          >
             Admission Date
           </label>
           <input
             type="date"
             id="admissionDate"
-            name="admissionDate"   // ✅ must match handler
+            name="admissionDate"
             required
-            className="border p-2 w-full"
+            className="border border-slate-300 rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
           />
         </div>
 
         <div>
-          <label className="block text-gray-700 mb-2" htmlFor="file">
+          <label
+            className="block text-slate-700 font-medium mb-1"
+            htmlFor="file"
+          >
             Upload Daily Records (CSV/XLSX)
           </label>
-          <input 
+          <input
             type="file"
             id="file"
-            name="file"   // ✅ must match handler
+            name="file"
             accept=".csv,.xlsx"
             required
-            className=" cursor-pointer border p-2"
+            className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer"
           />
         </div>
 
-        <div className="flex justify-end">
-          <button 
+        <div className="flex justify-end pt-4">
+          <button
             type="submit"
-            className="bg-blue-600 text-white py-2 px-6 rounded"
+            className="bg-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-md hover:bg-blue-700 transition duration-300"
           >
             Add Patient
           </button>

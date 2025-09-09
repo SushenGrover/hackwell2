@@ -1,35 +1,60 @@
-import { FaTrash } from "react-icons/fa";
+import { FaTrash, FaArrowRight } from "react-icons/fa";
 
-const PatientCard = ({ patient, onSelect, onDelete, getCardColor, getBarColor }) => (
+const PatientCard = ({
+  patient,
+  onSelect,
+  onDelete,
+  getCardColor,
+  getBorderColor,
+  getTextColor,
+}) => (
   <div
-    className="p-5 flex flex-col gap-1 rounded-xl shadow-md border-2 transition hover:shadow-lg"
-    style={{ backgroundColor: getCardColor(patient.probability), borderColor: patient.probability > 75 ? "#dc2626" : patient.probability > 50 ? "#f97316" : "#22c55e" }}
+    className="p-6 flex flex-col gap-2 rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer"
+    style={{
+      backgroundColor: getCardColor(patient.probability),
+      borderColor: getBorderColor(patient.probability),
+    }}
   >
-    <h4 className="font-bold text-blue-900 text-lg">Name: {patient.name}</h4>
-    <div className="text-gray-700 text-sm">Age: {patient.age}</div>
-    <div className="text-gray-700 text-sm">Admission Date: {patient.admissionDate}</div>
-    <div className="text-gray-700 text-sm">Disease: {patient.disease}</div>
-    <div className={`mt-2 font-semibold ${
-      patient.probability > 75
-        ? "text-red-600"
-        : patient.probability > 50
-        ? "text-orange-500"
-        : "text-green-600"
-    }`}>
-      Risk of Deterioration: {patient.probability}%
+    <div className="flex justify-between items-center mb-2">
+      <h4 className="font-bold text-slate-800 text-lg">{patient.name}</h4>
+      <div
+        className={`text-sm font-semibold px-3 py-1 rounded-full ${getTextColor(
+          patient.probability
+        )} bg-white shadow-sm`}
+      >
+        {patient.probability}%
+      </div>
     </div>
-    <div className="mt-3 flex justify-between items-center">
+
+    <div className="space-y-1 text-sm text-slate-600">
+      <p>
+        <span className="font-medium">Age:</span> {patient.age}
+      </p>
+      <p>
+        <span className="font-medium">Admission Date:</span>{" "}
+        {patient.admissionDate}
+      </p>
+      <p>
+        <span className="font-medium">Disease:</span> {patient.disease}
+      </p>
+    </div>
+
+    <div className="mt-4 flex justify-between items-center border-t border-slate-200 pt-4">
       <button
         onClick={() => onSelect(patient)}
-        className="text-blue-600 hover:underline text-sm font-semibold"
+        className="flex items-center text-blue-600 hover:text-blue-800 transition duration-200 font-semibold text-sm"
       >
-        View Details
+        View Details <FaArrowRight className="ml-2 text-xs" />
       </button>
       <button
-        onClick={() => onDelete(patient.id)}
-        className="text-red-600 hover:text-red-800 text-sm"
+        onClick={(e) => {
+          e.stopPropagation(); // Prevents card selection on delete click
+          onDelete(patient.id);
+        }}
+        className="text-red-500 hover:text-red-700 transition duration-200"
+        title="Delete Patient"
       >
-        <FaTrash />
+        <FaTrash className="text-base" />
       </button>
     </div>
   </div>
