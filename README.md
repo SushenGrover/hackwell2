@@ -1,4 +1,4 @@
-# 🏥 Chronic Care Patient Deterioration Predictor  
+# 🏥 Healytics: Chronic Care Patient Deterioration Predictor  
 
 An **AI-driven risk prediction engine** that forecasts the **90-day risk of deterioration** for chronic care patients.  
 This project combines **high-accuracy machine learning** with **interpretable explainability** and a **clinician-friendly dashboard**, enabling proactive interventions and reducing preventable hospitalizations.  
