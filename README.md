@@ -95,6 +95,7 @@ Frontend runs at: http://localhost:3000
 | Patient Detail View (High Risk) | ![High Risk Detail](https://github.com/SushenGrover/hackwell2/blob/main/images/3.png) |
 | SHAP Risk Drivers               | ![SHAP Explanation](https://github.com/SushenGrover/hackwell2/blob/main/images/4.png) |
 | Full Patient Table View         | ![Full Table](https://github.com/SushenGrover/hackwell2/blob/main/images/5.png)             |
+| Full Patient Table View         | ![Full Table](https://github.com/SushenGrover/hackwell2/blob/main/images/6.png)             |
 
 ### Live Deployment Link
 https://hackwell-roan.vercel.app/
