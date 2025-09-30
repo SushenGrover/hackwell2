@@ -91,10 +91,10 @@ Frontend runs at: http://localhost:3000
 | View                            | Screenshot                                           |
 | ------------------------------- | ---------------------------------------------------- |
 | Main Dashboard (Cohort View)    | ![Dashboard View](https://github.com/SushenGrover/hackwell2/blob/main/images/1.png)     |
-| Add Patient Modal               | ![Add Patient](DUMMY_LINK_ADD_PATIENT_MODAL.png)     |
-| Patient Detail View (High Risk) | ![High Risk Detail](DUMMY_LINK_HIGH_RISK_DETAIL.png) |
-| SHAP Risk Drivers               | ![SHAP Explanation](DUMMY_LINK_SHAP_EXPLANATION.png) |
-| Full Patient Table View         | ![Full Table](DUMMY_LINK_FULL_TABLE.png)             |
+| Add Patient Modal               | ![Add Patient](https://github.com/SushenGrover/hackwell2/blob/main/images/2.png)     |
+| Patient Detail View (High Risk) | ![High Risk Detail](https://github.com/SushenGrover/hackwell2/blob/main/images/2.png) |
+| SHAP Risk Drivers               | ![SHAP Explanation](https://github.com/SushenGrover/hackwell2/blob/main/images/1.png) |
+| Full Patient Table View         | ![Full Table](https://github.com/SushenGrover/hackwell2/blob/main/images/1.png)             |
 
 ### Live Deployment Link
 https://hackwell-roan.vercel.app/
