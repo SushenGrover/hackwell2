@@ -86,6 +86,8 @@ Run the app:
 npm start
 
 Frontend runs at: http://localhost:3000
+
+### Screenshots
 | View                            | Screenshot                                           |
 | ------------------------------- | ---------------------------------------------------- |
 | Main Dashboard (Cohort View)    | ![Dashboard View](DUMMY_LINK_DASHBOARD_VIEW.png)     |
@@ -94,15 +96,5 @@ Frontend runs at: http://localhost:3000
 | SHAP Risk Drivers               | ![SHAP Explanation](DUMMY_LINK_SHAP_EXPLANATION.png) |
 | Full Patient Table View         | ![Full Table](DUMMY_LINK_FULL_TABLE.png)             |
 
-💡 Impact & Next Steps
-
-This project demonstrates a clinically useful AI tool for proactive care. Future enhancements:
-
-Production Database Integration
-Replace in-memory storage with PostgreSQL or Firestore.
-
-Temporal Feature Engineering
-Explore time-series models (LSTM/RNN) for richer deterioration prediction.
-
-Clinical Feedback Loop
-Enable clinicians to validate predictions and drive active learning improvements.
+### Live Deployment Link
+https://hackwell-roan.vercel.app/
