@@ -23,8 +23,8 @@ This project combines **high-accuracy machine learning** with **interpretable ex
 
 ## 💻 Tech Stack  
 
-| Component   | Technology                  | Description                                                   |
-|-------------|-----------------------------|---------------------------------------------------------------|
+| Component    | Technology                  | Description                                                   |
+|--------------|-----------------------------|---------------------------------------------------------------|
 | **Frontend** | React + Tailwind CSS        | SPA dashboard with a responsive, modern UI.                   |
 | **Backend**  | Python, Flask, Flask-CORS   | REST API serving predictions and data processing.              |
 | **AI/ML**    | XGBoost, SHAP, SMOTE        | Gradient boosting model with SHAP explainability.             |
@@ -59,9 +59,10 @@ This project combines **high-accuracy machine learning** with **interpretable ex
 ```bash
 pip install Flask Flask-CORS pandas numpy xgboost scikit-learn joblib imblearn shap
 ```
-Train the Model (one-time):
+Train the model (one-time):
+```bash
 python backend/train_and_save_model.py
-
+```
 This generates:
 
 risk_prediction_model.pkl
@@ -71,28 +72,20 @@ shap_explainer.pkl
 feature_names.pkl
 
 Run API Server:
-
+```bash
 python backend/api.py
-
-
+```
 Server runs at: http://localhost:5000
-
-###3. Frontend Setup (React)
+3. Frontend Setup (React)
 
 Install dependencies:
 cd frontend
 npm install
-# or
-yarn install
 
 Run the app:
 npm start
-# or
-yarn start
 
 Frontend runs at: http://localhost:3000
-
-##🖼️ Screenshots
 | View                            | Screenshot                                           |
 | ------------------------------- | ---------------------------------------------------- |
 | Main Dashboard (Cohort View)    | ![Dashboard View](DUMMY_LINK_DASHBOARD_VIEW.png)     |
@@ -101,8 +94,7 @@ Frontend runs at: http://localhost:3000
 | SHAP Risk Drivers               | ![SHAP Explanation](DUMMY_LINK_SHAP_EXPLANATION.png) |
 | Full Patient Table View         | ![Full Table](DUMMY_LINK_FULL_TABLE.png)             |
 
-
-##💡 Impact & Next Steps
+💡 Impact & Next Steps
 
 This project demonstrates a clinically useful AI tool for proactive care. Future enhancements:
 
@@ -114,4 +106,3 @@ Explore time-series models (LSTM/RNN) for richer deterioration prediction.
 
 Clinical Feedback Loop
 Enable clinicians to validate predictions and drive active learning improvements.
-
