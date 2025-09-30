@@ -90,7 +90,7 @@ Frontend runs at: http://localhost:3000
 ### Screenshots
 | View                            | Screenshot                                           |
 | ------------------------------- | ---------------------------------------------------- |
-| Main Dashboard (Cohort View)    | ![Dashboard View](DUMMY_LINK_DASHBOARD_VIEW.png)     |
+| Main Dashboard (Cohort View)    | ![Dashboard View]([DUMMY_LINK_DASHBOARD_VIEW.png](https://github.com/SushenGrover/hackwell2/blob/main/images/1.png))     |
 | Add Patient Modal               | ![Add Patient](DUMMY_LINK_ADD_PATIENT_MODAL.png)     |
 | Patient Detail View (High Risk) | ![High Risk Detail](DUMMY_LINK_HIGH_RISK_DETAIL.png) |
 | SHAP Risk Drivers               | ![SHAP Explanation](DUMMY_LINK_SHAP_EXPLANATION.png) |
